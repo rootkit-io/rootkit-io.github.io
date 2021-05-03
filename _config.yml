@@ -106,7 +106,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "h0mbre"
+  name             : "Jesse"
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "It's All About Low level biatch"
   location         : "Where computers are"

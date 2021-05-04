@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Creating a Rootkit to Learn C
-date: 2019-9-29
+date: 2021-05-04
 classes: wide
 header:
   teaser: /assets/images/avatar.jpg

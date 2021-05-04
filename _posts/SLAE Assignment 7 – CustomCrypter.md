@@ -4,7 +4,6 @@ title: SLAE Assignment 7 -- Custom Crypter
 date: 2021-04-04
 classes: wide
 header:
-  teaser: /assets/images/SLAE/SLAE.jpg
 tags:
   - SLAE
   - Linux

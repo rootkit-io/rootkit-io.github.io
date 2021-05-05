@@ -13,8 +13,6 @@ tags:
   - AES
   - python
 --- 
-![](/assets/images/SLAE/SLAE.jpg)
-
 ## Introduction
 
 The 7th and final assignment for SLAE was create a custom encryption/decryption scheme for our shellcode. For the purposes of this excercise I chose to work with python. This assignment was a blast. Since its the last assignment, I decided to have some fun with it and went for novelty over strong encryption. I wanted a decryption scheme that only required shellcode input, so I designed the decryption function to brute force its own key!

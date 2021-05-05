@@ -3,7 +3,6 @@ layout: single
 title: SLAE_Crypter
 date: 2021-04-04
 classes: wide
-header:
 tags:
   - SLAE
   - Linux

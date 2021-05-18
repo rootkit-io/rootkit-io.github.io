@@ -1,6 +1,6 @@
 ---
 layout: single
-title: ~$ Whoami
+title: Whoami
 date: 2021-05-18
 classes: wide
 header:

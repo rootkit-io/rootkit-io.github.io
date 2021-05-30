@@ -297,3 +297,5 @@ defaults:
       related: true
       
 future: true
+
+theme: jekyll-theme-hacker

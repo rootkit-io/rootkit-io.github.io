@@ -14,7 +14,7 @@ tags:
 
 ## Introduction
 
-Practice makes perfect. What I will suggest is before installing arch directly on you're the main system or doing dual boot do a good practice of installing arch in a virtual box. I will use VirtualBox for this tutorial because most of the users out there use vbox. And this is going to be an EFI installation and the steps will be pretty similar if you are doing it on the main machine just care about drivers install the proper one.
+Practice makes perfect. What I will suggest is before installing arch directly on your the main system or doing dual boot do a good practice of installing arch in a virtual box. I will use VirtualBox for this tutorial because most of the users out there use vbox. And this is going to be an EFI installation and the steps will be pretty similar if you are doing it on the main machine just care about drivers install the proper one.
 
 *Warning: I am not Mr. Perfect so use the arch installation guide as a reference if you are stuck somewhere.*
 

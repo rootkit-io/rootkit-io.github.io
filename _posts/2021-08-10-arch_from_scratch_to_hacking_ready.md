@@ -4,13 +4,13 @@ title: Making Arch from scratch to hacking ready.
 date: 2021-7-23
 classes: wide
 header:
-  teaser: /assets/images/?/?
+  teaser: /assets/images/avatar.jpg
 tags:
   - ArchLinux
   - Linux
   - Lab
 --- 
-![](/assets/images/?/?)
+![](/assets/images/arch_from_scratch_to_hacking_ready/wallpaper.jpg)
 
 ## Introduction
 
@@ -40,7 +40,7 @@ You are good to go now just put the Pendrive in and brrr.
 
 Power on the VM. If you get a screen like this then kudos.
 
-![[Step1.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step1.png)
 
 
 ### 5. Set the Keyboard Layout.
@@ -99,7 +99,7 @@ So I will use ***fdisk*** to partition the disk because it's recommended in arch
 ```bash
 fdisk -l
 ```
-![[Step2.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step2.png)
 
 And this will list all of the drives to use as you can see there are two drives listed you thinking why there are two drives we have only created one? because the second device is just the loopback device. Now, what is a loopback device in a nutshell A loopback device in Linux is **a virtual device that can be used like any other media device**. If you want to read more about loopback device consider reading the [man page](https://man7.org/linux/man-pages/man4/loop.4.html) but our device is the 20 gigs one **/dev/sda**.
 
@@ -116,7 +116,7 @@ Now we need to create a new partition press **n** to create a new partition. Now
 Now it will ask what is the first sector we will go with default **2048**.
 Now it's asking the last sector we will give here 550m for that use **+550m**. Because this is going to be our **EFI** partition and it needs to be 550mib and finally it will creat a Linux File system partition but that is not the correct FS(file system) we will change it soon.
 
-![[Step3.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step3.png)
 
 It's going to look like this.
 
@@ -128,7 +128,7 @@ Same steps:
 3. In the Last Sector we are creating a swap so we will give it 2 gigs use **+2G** and press enter.
 4. It created a new partition but it also created it as a Linux Filesystem that is not correct.
 
-![[Step4.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step4.png)
 
 - Now the 3rd and last partition. Now we need to create the LFS.
 
@@ -138,7 +138,7 @@ Same steps:
 3. Last Sector press enter and it gives the rest of space to this partition.
 4. It created a new partition but this time it's in the correct format Linux Filesystem.
 
-![[Step5.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step5.png)
 
 ##### Changing the Partition Type
 
@@ -152,7 +152,7 @@ Steps:
 3. Press 1 to select the EFI System.You can press L to list all the aliases.
 4. Kudos it changed from LFS to EFI. 
 
-![[Step6.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step6.png)
 
 - Changing the Second partition from LFS to Swap.
 Steps:
@@ -162,7 +162,7 @@ Steps:
 3. Press 19 to select the Swap System.
 4. Kudos it changed from LFS to Swap.
 
-![[Step7.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step7.png)
 
 Now we don't need to change the last one because that is the LFS.
 
@@ -170,7 +170,7 @@ Now we don't need to change the last one because that is the LFS.
 
 For writing the table to the disk you need to type **w**.
 
-![[Step8.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step8.png)
 
 And it automatically exits out of **fdisk**. 
 
@@ -185,7 +185,7 @@ So we need to make EFI partition Fat32. We will run:
 ```bash
 mkfs.fat -F32 /dev/sda1
 ```
-![[Step9.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step9.png)
 
 - Swap Partition
 
@@ -200,7 +200,7 @@ But there is one more thing we have to do to activate the swap filesystem we nee
 swapon /dev/sda2
 ```
 
-![[Step11.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step11.png)
 
 - Ext4 Filesystem
 
@@ -209,7 +209,7 @@ We need to use **mkfs.ext4** command to create the big filesystem the last one.
 ```bash
 mkfs.ext4 /dev/sda3
 ```
-![[Step13.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step13.png)
 
 Yay! We have made our filesystems now we need to mount the big boy(our big filesystem)
 
@@ -220,7 +220,7 @@ To mount we need to run **mount** command on /dev/sda3.
 ```bash
 mount /dev/sda3 /mnt
 ```
-![[Step14.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step14.png)
 
 ### Installing Base Arch Linux(Big day)
 
@@ -230,7 +230,7 @@ We will use **pacstrap** command which will install the base system for the arch
 pacstrap /mnt base linux linux-firmware
 ```
 
-![[Step15.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step15.png)
 
 we installing base(base arch linux you can say), 
 linux(kernel) and 
@@ -254,7 +254,7 @@ Generating a **fstab** file by **genfstab** command:
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
-![[Step16.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step16.png)
 
 This should be enough to generate the fstab file. 
 
@@ -263,7 +263,7 @@ This should be enough to generate the fstab file.
 ```bash
 arch-chroot /mnt
 ```
-![[Step17.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step17.png)
 - You can see the prompt is changed.
 - Now we are into sda3 partition and here we are installing sda3.
 
@@ -296,7 +296,7 @@ pacman -S vim
 ```
 - pacman is the package manager of arch
 - -S flag we are using sync the packages.
-![[Step18.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step18.png)
 
 
 after that we will do:
@@ -304,19 +304,19 @@ after that we will do:
 ```bash 
 vim /etc/locale.gen
 ```
-![[Step19.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step19.png)
 
 the file will look something like this.
 
 - And after that go down and uncomment your locale for us region it will look like this.
 
-![[Step20.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step20.png)
 
 Uncomment and save the file.
 
 - Then you have to generate the locale after editing locale.gen run this command: 
 
-![[Step21.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step21.png)
 
 and yea you can uncomment more than one locale.
 
@@ -329,7 +329,7 @@ vim /etc/hostname
 ```
 
 - Type the hostname and save:
-![[Step22.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step22.png)
 
 2. Now we need to Create the hosts file, In the same /etc dir named hosts.
 
@@ -344,7 +344,7 @@ Or just copy the below lines they are the same:
 ::1              localhost
 127.0.1.1        _myhostname_._localdomain_        _myhostname_
 ```
-![[Step23.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step23.png)
 my /etc/hosts file.
 
 #### Setting Root Password.
@@ -361,7 +361,7 @@ To add a user you need to use **useradd** command.
 ```bash
 useradd -m jesse
 ```
-![[Step24.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step24.png)
 
 - Add the user and change the password.
 
@@ -372,7 +372,7 @@ For this user need to use **usermod** command.
 ```bash
 usermod -aG wheel,audio,video,optical,storage jesse(your user)
 ```
-![[Step26.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step26.png)
 
 - Install Sudo
 ```bash
@@ -392,7 +392,7 @@ visudo
 Run this and uncomment this line in the file -> **%wheel ALL=(ALL) ALL**
 
 you can see in the image:
-![[Step27.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step27.png)
 
 **Now we have Configured Arch Successfully. Congrats**
 
@@ -407,7 +407,7 @@ pacman -S grub
 ```bash 
 pacman -S efibootmgr dosfstools os-prober
 ```
-![[Step28.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step28.png)
 
 - Now we need to make EFI directory in the boot directory.
 ```bash
@@ -424,14 +424,14 @@ mount /dev/sda1 /boot/EFI
 grub-install --target=x86_64-efi --bootloader -id=grub_efi --recheck
 ```
 And if the installation went successful it will show no errors.
-![[Step29.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step29.png)
 
 - Now we need to make a grub config file run.
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 It generates the grub config file.
-![[Step31.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step31.png)
 
 **Yo we installed grub ;)**
 
@@ -450,7 +450,7 @@ systemctl enable NetworkManager
 ```
 It's enabled..
 
-![[Step32.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step32.png)
 
 ### Exit Chroot Env and Reboot(shutdown for vm users)
 First some steps before shutdown or rebooting.
@@ -461,7 +461,7 @@ First some steps before shutdown or rebooting.
 umount -l /mnt
 ```
 we have unmounted.
-![[Step33.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step33.png)
 
 - Now Shutdown VM users.
 ```bash
@@ -472,12 +472,12 @@ shutdown now
 - Now start the VM.
 
 - We got out little login panel
-![[Step34.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step34.png)
 
 - Let's login as a User Jesse.
 
 - Let's check if Networking is available or not.
-![[Step35.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step35.png)
 We have the networking...
 
 **Hell yea we have installed arch now you are also a cool arch user trust me you can flex this**
@@ -505,7 +505,7 @@ So let's see what are we installing here:
 - firefox 		   --> Browser
 - picom			   --> picom is **a standalone compositor for Xorg**, suitable for use with window managers that do not provide compositing.
 
-![[Step38.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step38.png)
 
 - Let's Install Windows manager.
 We will install our win manager using AUR. So Let's Install Yay first use this command:
@@ -524,7 +524,7 @@ makepkg -si
 ```
 And it will install yay.
 
-![[Step39.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step39.png)
 
 - So now we need to install windows manager I will go with the patched dwm because if you install dwm win manager raw you will need to patch it so what I will do is I will go with a distrotube(youtube) his dwm patched dwm package.
 
@@ -532,7 +532,7 @@ And it will install yay.
 
 - Just add the following lines to the end of /etc/pacman.conf :
 But before that, we need to enable multilib in the same just uncomment multilib in pacman.conf see like the below image.
-![[Step40.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step40.png)
 
 ```bash
 [dt-arch-repo]
@@ -541,13 +541,13 @@ Server = https://gitlab.com/dwt1/$repo/-/raw/master/$arch
 ```
 It will look like this and after that update using *sudo pacman -Syyu*
 
-![[Step41.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step41.png)
 
 - Now Let's finally install dwm and want to tell you yay works almost same as pacman with a wide range of software.
 ```bash
 yay -S dwm-distrotube-git dmenu-distrotube-git nerd-fonts-mononoki 
 ```
-![[Step42.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step42.png)
 
 So let's see what's we are installing:
 
@@ -567,7 +567,7 @@ nitrogen --restore &
 picom &
 exec dwm
 ```
-![[Step43.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step43.png)
 
 - Now we will restart the machine :))
 
@@ -578,7 +578,7 @@ exec dwm
 ```bash
 startx
 ```
-![[Step44.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step44.png)
 **GUYS HURRAY!! WE MADE IT LOL FINALLY AFTER A VERY FREAKIN LONG ASS CLI SESSION WE MADE IT TO GUI**
 
 **But we have another problem what are the key bindings so please go to the gitlab of distrotube and let me link the repo of dwm you can scroll down and see the keybinds in the key bind section [Dwm-Keybinds](https://gitlab.com/dwt1/dwm-distrotube) just scroll down and you will find the key bind section.**
@@ -608,7 +608,7 @@ Add the following to the bottom of your `/etc/pacman.conf`:
 [archstrike]
 Server = https://mirror.archstrike.org/$arch/$repo
 ```
-![[Step45.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step45.png)
 
 Refresh the pacman package database by running:
 
@@ -659,7 +659,7 @@ Refresh the pacman package database again to reflect the changes above by runnin
 ```
 In the final the pacman.conf archstrike block should look like this:
 
-![[Step46.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step46.png)
 
 
 - You can list all the packages of archstrike with this command.
@@ -681,7 +681,7 @@ and type this line.
 ```bash
 exec startx -- vt1
 ```
-![[Step47.png]]
+![](/assets/images/arch_from_scratch_to_hacking_ready/Step47.png)
 
 **And Yea I want to close this here and if you face some problem do message me on Twitter this is my Twitter [r00tkit__](https://twitter.com/r00tkit__)**
 

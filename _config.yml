@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Jesse"
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "It's All About Low level biatch"
+  bio              : "It's All About Low level bitch"
   location         : "Where computers are"
   email            :
   links:
@@ -120,16 +120,16 @@ author:
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/r00tkit__"
+      url: "https://twitter.com/Sasha0x01"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/rootkit-io"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/___theycallmeaadi"
+ #   - label: "Instagram"
+  #    icon: "fab fa-fw fa-instagram"
+   #   url: "https://instagram.com/___theycallmeaadi"
 
 # Site Footer
 footer:
